@@ -150,10 +150,9 @@ int main(int argc _unused, char **argv _unused)
 		if (!cli_mode) {
 			mui_init();
 		} else {
-			/* Not much we can do if these fail */
-			freopen("/dev/tty0", "a", stdout);
-			freopen("/dev/tty0", "a", stdout);
-			freopen("/dev/tty0", "r", stdin);
+			freopen("/dev/ttyS0", "a", stdout);
+			freopen("/dev/ttyS0", "a", stdout);
+			freopen("/dev/ttyS0", "r", stdin);
 		}
 	}
 
