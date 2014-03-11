@@ -145,6 +145,11 @@ load_diskconfig(const char *fn, char *path_override)
     cnode *root = config_node("", "");
     const char *tmp;
 
+    if (NULL == root) {
+        ALOGE("Could not read config node");
+        return NULL;
+    }
+
     if (!(dinfo = malloc(sizeof(struct disk_info)))) {
         ALOGE("Could not malloc disk_info");
         return NULL;

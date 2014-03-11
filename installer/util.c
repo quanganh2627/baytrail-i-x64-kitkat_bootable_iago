@@ -754,7 +754,7 @@ int64_t read_sysfs_int(const char *fmt, ...)
 void ui_printf(enum ui_print_mode mode, const char *fmt, ...)
 {
 	va_list ap;
-	char buf[8192];
+	char buf[8192] = {0};
 	size_t len;
 
 	va_start(ap, fmt);
@@ -765,7 +765,6 @@ void ui_printf(enum ui_print_mode mode, const char *fmt, ...)
 	len = strlen(buf);
 	if (buf[len - 1] != '\n') {
 		buf[len] = '\n';
-		buf[len + 1] = '\0';
 	}
 
 	switch (mode) {

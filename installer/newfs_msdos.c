@@ -616,6 +616,8 @@ newfs_msdos_main(int argc, char *argv[])
 	gettimeofday(&tv, NULL);
 	now = tv.tv_sec;
 	tm = localtime(&now);
+	if(NULL == tm)
+	    err(1, "tm=NULL");
 	if (!(img = malloc(bpb.bps)))
 	    err(1, "strdup");
 	dir = bpb.res + (bpb.spf ? bpb.spf : bpb.bspf) * bpb.nft;
